@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OVA - Objeto Virtual de Aprendizaje sobre Teoría General de Sistemas">
+    <meta name="author" content="Estudiante Universitario">
+    <title>Teoría General de Sistemas - OVA Interactivo</title>
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen">
+        <div class="spinner"></div>
+        <p class="loading-text">Cargando OVA...</p>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="navbar">
+            <a href="#inicio" class="logo">
+                <i class="fas fa-network-wired"></i>
+                TGS OVA
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#conceptos">Conceptos</a></li>
+                <li><a href="#ejemplos">Ejemplos</a></li>
+                <li><a href="#juegos">Juegos</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#referencias">Referencias</a></li>
+            </ul>
+
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <button class="theme-toggle"> Claro</button>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <h1>Teoría General de Sistemas</h1>
+        <p>Descubre cómo funcionan los sistemas en la naturaleza, la tecnología y la sociedad. Un viaje interactivo por los principios fundamentales que rigen nuestro universo.</p>
+        <button class="btn btn-primary" onclick="scrollToSection('conceptos')">
+             Comenzar Aprendizaje
+        </button>
+        <div style="margin-top: 50px; text-align: center; font-size: 4rem;">
+            ⚙️
+        </div>
+    </section>
+
+    <!-- CONCEPTOS FUNDAMENTALES -->
+    <section id="conceptos">
+        <h2 class="section-title">Conceptos Fundamentales de TGS</h2>
+        
+        <div class="concepts-grid">
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">📦</div>
+                <h3>¿Qué es un Sistema?</h3>
+                <p>Un conjunto de elementos interconectados e interdependientes que funcionan como una unidad integrada, trabajando conjuntamente para alcanzar un objetivo común.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">➡️</div>
+                <h3>Entrada (Input)</h3>
+                <p>Los recursos, información o energía que ingresan al sistema desde el entorno externo. Sin entrada, el sistema no puede funcionar o transformar nada.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">⚡</div>
+                <h3>Proceso</h3>
+                <p>La transformación que ocurre dentro del sistema donde se utilizan entradas para producir cambios. Es el "corazón" del sistema que agrega valor.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">📤</div>
+                <h3>Salida (Output)</h3>
+                <p>El resultado final del proceso de transformación. Es lo que el sistema genera y envía hacia el entorno. El producto o servicio final.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🔄</div>
+                <h3>Retroalimentación</h3>
+                <p>El mecanismo mediante el cual la salida se monitorea y se usa para regular el funcionamiento del sistema, creando un ciclo de control y mejora continua.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🌍</div>
+                <h3>Entorno</h3>
+                <p>Todo aquello que rodea al sistema pero no hace parte de él. El contexto externo con el que el sistema interactúa e intercambia recursos.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🚧</div>
+                <h3>Límites del Sistema</h3>
+                <p>Las fronteras imaginarias o reales que definen qué pertenece al sistema y qué al entorno. Son cruciales para distinguir el sistema de su contexto.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🔓</div>
+                <h3>Sistemas Abiertos</h3>
+                <p>Intercambian energía, materia e información con el entorno. Están vivos, son dinámicos y requieren entradas externas para funcionar (ej: empresas, organismos).</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🔒</div>
+                <h3>Sistemas Cerrados</h3>
+                <p>No intercambian materia con el entorno, aunque pueden intercambiar energía. Tienden al desorden y son menos comunes en la naturaleza viva.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">🏗️</div>
+                <h3>Subsistemas</h3>
+                <p>Sistemas que funcionan dentro de un sistema más grande. Cada subsistema contribuye a la función general del sistema principal manteniendo su propia estructura.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">📉</div>
+                <h3>Entropía</h3>
+                <p>La tendencia de todos los sistemas a aumentar su desorden y pérdida de energía con el tiempo. Es la degradación inevitable hacia el caos sin aporte de energía externa.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">⚖️</div>
+                <h3>Homeostasis</h3>
+                <p>La capacidad del sistema para mantener un estado de equilibrio relativamente estable a pesar de cambios en el entorno. Auto-regulación dinámica del sistema.</p>
+            </div>
+
+            <div class="concept-card scroll-animation">
+                <div class="concept-icon">✨</div>
+                <h3>Sinergia</h3>
+                <p>El efecto emergente donde el todo es mayor que la suma de sus partes. Cuando los elementos trabajan juntos crean valor adicional que no existiría de forma individual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EJEMPLOS REALES DE SISTEMAS -->
+    <section id="ejemplos">
+        <h2 class="section-title">Sistemas en la Vida Real</h2>
+        
+        <div class="examples-grid">
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">📺</div>
+                <h4>Netflix</h4>
+                <ul>
+                    <li>Entrada: Contenido, usuarios, dinero</li>
+                    <li>Proceso: Recomendación con IA</li>
+                    <li>Salida: Entretenimiento personalizado</li>
+                    <li>Retroalimentación: Ratings y visualizaciones</li>
+                    <li>Tipo: Sistema abierto</li>
+                </ul>
+            </div>
+
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">🏥</div>
+                <h4>Hospital</h4>
+                <ul>
+                    <li>Entrada: Pacientes, medicinas, recursos</li>
+                    <li>Proceso: Diagnóstico y tratamiento</li>
+                    <li>Salida: Pacientes recuperados</li>
+                    <li>Retroalimentación: Historias clínicas</li>
+                    <li>Tipo: Sistema abierto complejo</li>
+                </ul>
+            </div>
+
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">🎓</div>
+                <h4>Universidad</h4>
+                <ul>
+                    <li>Entrada: Estudiantes, conocimiento, recursos</li>
+                    <li>Proceso: Enseñanza y aprendizaje</li>
+                    <li>Salida: Profesionales competentes</li>
+                    <li>Retroalimentación: Evaluaciones</li>
+                    <li>Tipo: Sistema abierto educativo</li>
+                </ul>
+            </div>
+
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">🏢</div>
+                <h4>Empresa</h4>
+                <ul>
+                    <li>Entrada: Dinero, talento, materiales</li>
+                    <li>Proceso: Producción y servicios</li>
+                    <li>Salida: Productos y ganancias</li>
+                    <li>Retroalimentación: Indicadores de gestión</li>
+                    <li>Tipo: Sistema abierto socio-económico</li>
+                </ul>
+            </div>
+
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">💻</div>
+                <h4>Computador</h4>
+                <ul>
+                    <li>Entrada: Instrucciones, datos, energía</li>
+                    <li>Proceso: Procesamiento de información</li>
+                    <li>Salida: Resultados en pantalla</li>
+                    <li>Retroalimentación: Sensores internos</li>
+                    <li>Tipo: Sistema abierto técnico</li>
+                </ul>
+            </div>
+
+            <div class="example-card scroll-animation">
+                <div class="example-emoji">🧬</div>
+                <h4>Cuerpo Humano</h4>
+                <ul>
+                    <li>Entrada: Alimentos, oxígeno, información</li>
+                    <li>Proceso: Metabolismo biológico</li>
+                    <li>Salida: Energía, movimiento, pensamiento</li>
+                    <li>Retroalimentación: Señales nerviosas</li>
+                    <li>Tipo: Sistema abierto biológico</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUEGOS INTERACTIVOS -->
+    <section id="juegos">
+        <h2 class="section-title">Juegos Interactivos para Aprender</h2>
+        
+        <div class="games-container">
+            <!-- JUEGO 1: MATCHING -->
+            <div class="game-box scroll-animation">
+                <h3>🎮 Juego 1: Asociación de Conceptos</h3>
+                <p style="color: #888; margin-bottom: 20px;">Relaciona cada concepto con su definición correcta. Haz clic en los términos para emparejar.</p>
+                <div id="game1"></div>
+            </div>
+
+            <!-- JUEGO 2: CLASIFICACIÓN -->
+            <div class="game-box scroll-animation">
+                <h3>🎯 Juego 2: Clasificación de Sistemas</h3>
+                <p style="color: #888; margin-bottom: 20px;">Arrastra cada sistema a la categoría correcta. ¿Es abierto o cerrado?</p>
+                <div id="game2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ INTERACTIVO -->
+    <section id="quiz">
+        <h2 class="section-title">Quiz Evaluativo</h2>
+        <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px;">
+            Responde 10 preguntas sobre TGS. ¡Tienes 5 minutos! Mide tu conocimiento y obtén retroalimentación instantánea.
+        </p>
+        <div class="quiz-container scroll-animation"></div>
+    </section>
+
+    <!-- VIDEOS EDUCATIVOS -->
+    <section id="videos">
+        <h2 class="section-title">Recursos Multimedia</h2>
+        <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px;">
+            Amplía tu conocimiento con estos videos educativos sobre Teoría General de Sistemas.
+        </p>
+        
+        <div class="videos-grid">
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/4N5ShhC24OY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Introducción a la Teoría de Sistemas</div>
+            </div>
+
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/8s8fU-lzPvU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sistemas Abiertos vs Cerrados</div>
+            </div>
+
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/qJ-6Gds3Rqg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Sistemas y Cibernética</div>
+            </div>
+
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/6-RSVQJ3tTc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Pensamiento Sistémico Explicado</div>
+            </div>
+
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/QdGbpAT8Bz0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Aplicaciones de TGS en Empresas</div>
+            </div>
+
+            <div class="video-container scroll-animation">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/jMZYX_e2XLs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Complejidad y Sistemas Adaptativos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERENCIAS Y CRÉDITOS -->
+    <section id="referencias">
+        <h2 class="section-title">Información Académica</h2>
+        
+        <div class="credits-container">
+            <!-- CRÉDITOS -->
+            <div class="credits-section scroll-animation">
+                <h4>📋 Acerca de esta OVA</h4>
+                
+                <div style="margin: 20px 0;">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">👤 Autor</h5>
+                    <p>Anyelo Steven Oliveros Rivera</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">🏫 Universidad</h5>
+                    <p>Institución de Educación Superior</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">📚 Asignatura</h5>
+                    <p>Teoría General de Sistemas</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">📅 Año</h5>
+                    <p>2026</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">🛠️ Tecnologías Usadas</h5>
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Font Awesome</span>
+                        <span class="tech-badge">Responsive Design</span>
+                        <span class="tech-badge">Dark Mode</span>
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0; padding-top: 20px; border-top: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">💡 Objetivo</h5>
+                    <p>Proporcionar una herramienta educativa interactiva que facilite la comprensión de los conceptos fundamentales de la Teoría General de Sistemas de una manera moderna, visual y amena. Dirigido a estudiantes universitarios que desean profundizar en este tema fundamental de la ingeniería y las ciencias administrativas.</p>
+                </div>
+            </div>
+
+            <!-- REFERENCIAS BIBLIOGRÁFICAS -->
+            <div class="credits-section scroll-animation">
+                <h4> Referencias Bibliográficas</h4>
+                
+                <ol class="references-list">
+                    <li><strong>Bertalanffy, L. V.</strong> "Teoría General de Sistemas" (1968). Fundamentos de la TGS moderna.</li>
+                    
+                    <li><strong>Senge, P.</strong> "La Quinta Disciplina" (1990). Pensamiento sistémico en organizaciones.</li>
+                    
+                    <li><strong>Morin, E.</strong> "Introducción al Pensamiento Complejo" (1990). Complejidad y sistemas.</li>
+                    
+                    <li><strong>Jackson, M. C.</strong> "Systems Thinking: Creative Holism for Managers" (2003). Aplicaciones prácticas.</li>
+                    
+                    <li><strong>Stacey, R. D.</strong> "Complex Responsive Processes in Organizations" (2001). Sistemas adaptativos.</li>
+                    
+                    <li><strong>Beer, S.</strong> "Designing Freedom" (1974). Cibernética organizacional.</li>
+                    
+                    <li><strong>Meadows, D. H.</strong> "Thinking in Systems: A Primer" (2008). Introducción moderna a sistemas.</li>
+                    
+                    <li><strong>Laszlo, E.</strong> "The Systems View of the World" (1972). Visión sistémica del mundo.</li>
+                    
+                    <li><strong>Capra, F.</strong> "The Turning Point" (1982). Sistemas en biología y sociedad.</li>
+                    
+                    <li><strong>Checkland, P.</strong> "Systems Thinking, Systems Practice" (1981). Metodología sistémica.</li>
+                </ol>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h5 style="color: #00d4ff; margin-bottom: 10px;">🎯 Competencias Desarrolladas</h5>
+                    <ul class="references-list" style="list-style: disc; margin-left: 20px;">
+                        <li>Comprensión de conceptos sistémicos fundamentales</li>
+                        <li>Identificación de sistemas en contextos reales</li>
+                        <li>Análisis de relaciones input-process-output</li>
+                        <li>Diferenciación entre sistemas abiertos y cerrados</li>
+                        <li>Aplicación de pensamiento sistémico en problemas</li>
+                        <li>Reconocimiento de retroalimentación en procesos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong>🌐 Teoría General de Sistemas - OVA v1.0</strong>
+            </div>
+            <div class="footer-text">
+                Plataforma Educativa Interactiva Moderna
+            </div>
+            <div class="footer-text">
+                © 2025 - Todos los derechos reservados
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link">📧 Contacto</a>
+                <a href="#" class="social-link">📖 Más Recursos</a>
+                <a href="#" class="social-link">🔗 Compartir</a>
+            </div>
+            <div class="footer-text" style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+                Creado con ❤️ para estudiantes que quieren comprender cómo funcionan los sistemas del universo.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
