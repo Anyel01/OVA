@@ -1,20 +1,13 @@
-// ===================================
-// TEORÍA GENERAL DE SISTEMAS - OVA
-// Script principal - Interactividad completa
-// ===================================
 
-// Simulamos loading screen
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.querySelector('.loading-screen').classList.add('hidden');
     }, 1500);
 });
 
-// ===== TEMA OSCURO/CLARO =====
 const themeToggle = document.querySelector('.theme-toggle');
 const htmlElement = document.documentElement;
 
-// Recuperar tema guardado
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     document.body.classList.add('light-mode');
@@ -28,7 +21,6 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = currentTheme === 'light' ? '🌙 Oscuro' : '☀️ Claro';
 });
 
-// ===== NAVBAR MÓVIL =====
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -45,7 +37,6 @@ if (menuToggle) {
     });
 }
 
-// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -59,7 +50,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== SCROLL ANIMATIONS =====
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -79,7 +69,6 @@ document.querySelectorAll('.concept-card, .example-card, .game-box, .video-conta
     observer.observe(el);
 });
 
-// ===== JUEGO 1: MATCHING (CONCEPTOS) =====
 const matchingData = [
     { concept: 'Sistema', definition: 'Conjunto de elementos interconectados' },
     { concept: 'Entrada', definition: 'Recursos que ingresa al sistema' },
@@ -96,7 +85,6 @@ function initGame1() {
     const game1Container = document.getElementById('game1');
     if (!game1Container) return;
 
-    // Crear copia y mezclar
     let lefts = matchingData.map((item, i) => ({ ...item, id: i, type: 'concept' }));
     let rights = matchingData.map((item, i) => ({ ...item, id: i, type: 'definition' })).sort(() => Math.random() - 0.5);
 
@@ -128,14 +116,12 @@ function setupGame1() {
             const itemId = this.dataset.id;
             const itemType = this.dataset.type;
 
-            // Remover clase selected si ya estaba seleccionado
             if (this.classList.contains('selected')) {
                 this.classList.remove('selected');
                 game1Selected = game1Selected.filter(s => s !== this);
                 return;
             }
 
-            // Si hay dos seleccionados, verificar
             if (game1Selected.length === 2) {
                 const [first, second] = game1Selected;
                 const firstId = first.dataset.id;
@@ -465,7 +451,6 @@ function showQuizQuestion() {
 
     quiz.innerHTML = html;
 
-    // Actualizar timer
     const timerInterval = setInterval(() => {
         const remaining = Math.floor((300 - (Date.now() - quizStartTime) / 1000));
         const m = Math.floor(remaining / 60);
@@ -480,7 +465,6 @@ function showQuizQuestion() {
         }
     }, 1000);
 
-    // Eventos de opciones
     document.querySelectorAll('.quiz-option').forEach(option => {
         option.addEventListener('click', function() {
             if (document.querySelector('.quiz-option.selected')) return;
@@ -523,13 +507,13 @@ function finishQuiz() {
 
     let resultMessage = '';
     if (percentage === 100) {
-        resultMessage = '🎓 ¡PERFECTO! Eres un maestro en TGS';
+        resultMessage = ' ¡PERFECTO! Eres un maestro en TGS';
     } else if (percentage >= 80) {
-        resultMessage = '🌟 ¡EXCELENTE! Dominas muy bien los conceptos';
+        resultMessage = ' ¡EXCELENTE! Dominas muy bien los conceptos';
     } else if (percentage >= 60) {
-        resultMessage = '👍 ¡BUENO! Tienes buena comprensión de TGS';
+        resultMessage = ' ¡BUENO! Tienes buena comprensión de TGS';
     } else {
-        resultMessage = '📚 Sigue estudiando, ¡lo lograrás!';
+        resultMessage = ' Sigue estudiando, ¡lo lograrás!';
     }
 
     document.getElementById('quiz-results').classList.add('show');
@@ -540,27 +524,22 @@ function finishQuiz() {
     document.getElementById('percentage').textContent = percentage;
     document.getElementById('total-time').textContent = totalTime;
 
-    // Ocultar preguntas
     document.querySelectorAll('.quiz-question, .quiz-options, .progress-bar, .quiz-header').forEach(el => {
         el.style.display = 'none';
     });
 }
 
-// ===== INICIALIZAR TODO =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar juegos
     initGame1();
     initGame2();
     initQuiz();
 
-    // Scroll animations
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
         observer.observe(section);
     });
 });
 
-// ===== FUNCIONES AUXILIARES =====
 function scrollToSection(id) {
     const element = document.getElementById(id);
     if (element) {
@@ -568,12 +547,10 @@ function scrollToSection(id) {
     }
 }
 
-// Prevenir que se cargue muy rápido
 window.addEventListener('beforeunload', () => {
     document.querySelector('.loading-screen').classList.remove('hidden');
 });
 
-// Easter egg: Konami code
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let konamiIndex = 0;
 
