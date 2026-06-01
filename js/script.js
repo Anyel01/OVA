@@ -1,9 +1,5 @@
 
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.querySelector('.loading-screen').classList.add('hidden');
-    }, 1500);
-});
+// Loader removed: no full-page loading overlay anymore
 
 const themeToggle = document.querySelector('.theme-toggle');
 const htmlElement = document.documentElement;
@@ -547,9 +543,7 @@ function scrollToSection(id) {
     }
 }
 
-window.addEventListener('beforeunload', () => {
-    document.querySelector('.loading-screen').classList.remove('hidden');
-});
+// beforeunload loader handling removed
 
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let konamiIndex = 0;
