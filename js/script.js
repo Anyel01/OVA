@@ -7,14 +7,14 @@ const htmlElement = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     document.body.classList.add('light-mode');
-    themeToggle.textContent = '🌙 Oscuro';
+    themeToggle.textContent = 'Oscuro';
 }
 
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     const currentTheme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
     localStorage.setItem('theme', currentTheme);
-    themeToggle.textContent = currentTheme === 'light' ? '🌙 Oscuro' : '☀️ Claro';
+    themeToggle.textContent = currentTheme === 'light' ? 'Oscuro' : 'Claro';
 });
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -118,27 +118,43 @@ function setupGame1() {
                 return;
             }
 
-            if (game1Selected.length === 2) {
-                const [first, second] = game1Selected;
+            // Si ya hay 1 seleccionado, validar la pareja
+            if (game1Selected.length === 1) {
+                const first = game1Selected[0];
+                const second = this;
                 const firstId = first.dataset.id;
                 const secondId = second.dataset.id;
+                const firstType = first.dataset.type;
+                const secondType = second.dataset.type;
 
-                if (firstId === secondId) {
-                    first.classList.add('matched');
-                    second.classList.add('matched');
-                    game1Matches.push(firstId);
-                    showFeedback('game1-feedback', '✅ ¡Correcto! Excelente asociación', 'success');
-                    updateGame1Score();
+                // Validar que sean tipos diferentes (concepto + definición)
+                if (firstType !== secondType) {
+                    // Ahora pueden ser validados
+                    this.classList.add('selected');
+                    
+                    // Validar si el emparejamiento es correcto
+                    if (firstId === secondId) {
+                        first.classList.add('matched');
+                        second.classList.add('matched');
+                        game1Matches.push(firstId);
+                        showFeedback('game1-feedback', '✅ ¡Correcto! Excelente asociación', 'success');
+                        updateGame1Score();
+                    } else {
+                        first.classList.add('error');
+                        second.classList.add('error');
+                        showFeedback('game1-feedback', '❌ Intenta de nuevo, no coinciden', 'error');
+                        setTimeout(() => {
+                            first.classList.remove('error', 'selected');
+                            second.classList.remove('error', 'selected');
+                        }, 800);
+                    }
+                    game1Selected = [];
                 } else {
-                    first.classList.add('error');
-                    second.classList.add('error');
-                    showFeedback('game1-feedback', '❌ Intenta de nuevo, no coinciden', 'error');
-                    setTimeout(() => {
-                        first.classList.remove('error', 'selected');
-                        second.classList.remove('error', 'selected');
-                    }, 800);
+                    // Si son del mismo tipo, deseleccionar el anterior y seleccionar este
+                    first.classList.remove('selected');
+                    this.classList.add('selected');
+                    game1Selected = [this];
                 }
-                game1Selected = [];
                 return;
             }
 
@@ -147,17 +163,20 @@ function setupGame1() {
         });
     });
 
-    document.querySelector('#game1 button').addEventListener('click', initGame1);
+    document.querySelector('#game1 button').addEventListener('click', () => {
+        game1Matches = [];
+        game1Selected = [];
+        initGame1();
+    });
 }
 
 function updateGame1Score() {
     document.getElementById('game1-score').textContent = game1Matches.length;
     if (game1Matches.length === 6) {
-        showFeedback('game1-feedback', '🎉 ¡JUEGO COMPLETADO! Demostraste excelente comprensión', 'success');
+        showFeedback('game1-feedback', '¡JUEGO COMPLETADO! Demostraste excelente comprensión', 'success');
     }
 }
 
-// ===== JUEGO 2: CLASIFICACIÓN (ABIERTOS/CERRADOS) =====
 const systemsData = [
     { name: 'Netflix', type: 'abierto' },
     { name: 'Universo', type: 'cerrado' },
@@ -228,7 +247,7 @@ function setupGame2() {
         box.addEventListener('drop', (e) => {
             e.preventDefault();
             box.classList.remove('active');
-            const chip = e.dataTransfer.getData('text');
+            const chip = e.dataTransfer.getData('text/html');
             
             // Encontrar el chip original
             let draggedChip = null;
@@ -260,6 +279,11 @@ function setupGame2() {
 
     document.querySelector('#game2 button').addEventListener('click', () => {
         game2Correct = 0;
+        document.querySelectorAll('#game2 .system-chip.placed').forEach(chip => {
+            chip.draggable = true;
+            chip.classList.remove('placed');
+            chip.style.margin = '';
+        });
         initGame2();
     });
 }
@@ -267,7 +291,7 @@ function setupGame2() {
 function updateGame2Score() {
     document.getElementById('game2-score').textContent = game2Correct;
     if (game2Correct === systemsData.length) {
-        showFeedback('game2-feedback', '🎉 ¡PERFECTO! Completaste la clasificación sin errores', 'success');
+        showFeedback('game2-feedback', '¡PERFECTO! Completaste la clasificación sin errores', 'success');
     }
 }
 
@@ -282,7 +306,6 @@ function showFeedback(elementId, message, type) {
     }
 }
 
-// ===== QUIZ INTERACTIVO =====
 const quizData = [
     {
         question: "¿Cuál es la definición principal de un sistema según TGS?",
